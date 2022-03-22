@@ -3,25 +3,18 @@ name: Android Build
 # Controls when the action will run. 
 on: [push, pull_request, workflow_dispatch]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   buildLinux:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.0
-      # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
@@ -55,13 +48,11 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2.3.0
 
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.0
-      # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
@@ -96,13 +87,11 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.0
-      # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
@@ -133,12 +122,9 @@ jobs:
           name: macBuild
           path: export/release/macos/bin
   buildAndroid:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: krdlab/setup-haxe@v1
         with:
@@ -164,7 +150,6 @@ jobs:
         with:
           ndk-version: r15c
 
-      # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
