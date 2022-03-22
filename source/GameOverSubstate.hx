@@ -25,6 +25,11 @@ class GameOverSubstate extends MusicBeatSubstate
 				daBf = 'bf-pixel-dead';
 			default:
 				daBf = 'bf';
+				
+			#if android
+	                addVirtualPad(FULL, A_B);
+                        #end
+				
 		}
 
 		super();
