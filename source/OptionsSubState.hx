@@ -31,6 +31,10 @@ class OptionsSubState extends MusicBeatSubstate
 			optionText.ID = i;
 			grpOptionsTexts.add(optionText);
 		}
+		
+		#if android
+	        addVirtualPad(FULL, A_B);
+                #end
 	}
 
 	override function update(elapsed:Float)
