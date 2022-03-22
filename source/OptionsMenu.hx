@@ -34,14 +34,6 @@ class OptionsMenu extends MusicBeatState
 			//new CustomizeGameplay("Drag'n'Drop Gameplay Modules around to your preference")
 		]),
 		new OptionCatagory("Appearance", [
-			#if desktop
-			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
-			new RainbowFPSOption("Make the FPS Counter Rainbow (Only works with the FPS Counter toggled on and Flashing Lights toggled off)"),
-			new AccuracyOption("Display accuracy information."),
-			new NPSDisplayOption("Shows your current Notes Per Second."),
-			new SongPositionOption("Show the songs current position (as a bar)"),
-			new AudioOffset("Adjust the offset between the song's visuals and audio. (LEFT or RIGHT)")
-			#else
 			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay.")
 			new AudioOffset("Adjust the offset between the song's visuals and audio. (LEFT or RIGHT)")
 			#end
