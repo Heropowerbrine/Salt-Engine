@@ -34,7 +34,8 @@ class OptionsMenu extends MusicBeatState
 			//new CustomizeGameplay("Drag'n'Drop Gameplay Modules around to your preference")
 		]),
 		new OptionCatagory("Appearance", [
-			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay.")
+			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
+			new AudioOffset("Adjust the offset between the song's visuals and audio. (LEFT or RIGHT)"),
 			#end
 		]),
 		new OptionCatagory("Misc", [
