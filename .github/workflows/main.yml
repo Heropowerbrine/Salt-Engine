@@ -43,7 +43,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Installing Packages
         run: |
-          cinst neko --version 2.3.0 -y
+          neko --version 2.3.0 -y
           mkdir -p "%HAXELIB_ROOT%"
           haxelib setup "%HAXELIB_ROOT%"
           haxelib install lime 7.9.0 --quiet
