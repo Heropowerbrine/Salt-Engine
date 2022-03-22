@@ -982,6 +982,10 @@ class PlayState extends MusicBeatState
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 		
+		#if android
+	        addAndroidControls();
+                #end		
+				
 		if (isStoryMode)
 		{
 			switch (curSong.toLowerCase())
@@ -1348,6 +1352,10 @@ class PlayState extends MusicBeatState
 	function startCountdown():Void
 	{
 		normalStart = true;
+		
+		#if android
+	        androidc.visible = true;
+	        #end
 		
 		startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
 		{
