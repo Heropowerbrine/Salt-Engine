@@ -79,6 +79,10 @@ class TitleState extends MusicBeatState
 
 		// DEBUG BULLSHIT
 
+		#if android
+	        addVirtualPad(FULL, A_B);
+                #end
+		
 		super.create();
 
 		// NGio.noLogin(APIStuff.API);
