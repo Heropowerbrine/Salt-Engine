@@ -79,6 +79,8 @@ class Main extends Sprite
 		initialState = TitleState;
 		#end
 
+		SUtil.doTheCheck();
+
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
 
 		addChild(game);
