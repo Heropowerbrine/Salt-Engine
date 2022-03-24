@@ -1957,7 +1957,10 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
-		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+		if ((FlxG.keys.anyJustPressed.([pauseBind])#if android || FlxG.android.justReleased.BACK #end)
+			&& startedCountdown
+			&& canPause
+			&& !cannotDie)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
