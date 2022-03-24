@@ -47,6 +47,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxStringUtil;
 import flixel.util.FlxTimer;
+import flixe.input.keyboard.FlxKey;
 import haxe.Json;
 import lime.utils.Assets;
 import openfl.display.BlendMode;
