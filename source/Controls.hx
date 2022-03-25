@@ -595,7 +595,7 @@ class Controls extends FlxActionSet
 
 	public function setKeyboardScheme(scheme:KeyboardScheme, reset = true)
 	{
-		if (reset)
+		*/if (reset)
 			removeKeyboard();
 
 		keyboardScheme = scheme;
@@ -665,7 +665,7 @@ class Controls extends FlxActionSet
 			case None: // nothing
 			case Custom: // nothing
 		}
-		#end
+		#end */
 	}
 
 	function removeKeyboard()
