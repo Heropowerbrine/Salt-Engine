@@ -132,6 +132,21 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
+        var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+
+                if (gamepad != null)
+		{
+			if (gamepad.justPressed.DPAD_UP)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeItem(-1);
+			}
+			if (gamepad.justPressed.DPAD_DOWN)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeItem(1);
+			}
+		}
 		if (!selectedSomethin)
 		{
 			if (controls.UP_P)
