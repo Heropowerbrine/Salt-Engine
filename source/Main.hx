@@ -1,5 +1,6 @@
 package;
 
+import openfl.display.Bitmap
 import openfl.display.BlendMode;
 import openfl.text.TextFormat;
 import openfl.display.Application;
@@ -81,15 +82,24 @@ class Main extends Sprite
 
 		SUtil.doTheCheck();
 
-		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
+                #if !android
+		fpsCounter = new KadeEngineFPS(10, 3, 0xFFFFFF);
+		bitmapFPS = ImageOutline.renderImage(fpsCounter, 1, 0x000000, true);
+		bitmapFPS.smoothing = true;
+		#end
 
+		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
 		addChild(game);
 
+                #if !android
+		addChild(fpsCounter);
+		toggleFPS(FlxG.save.data.fps);
+                #end
 	}
 
 	var game:FlxGame;
 
-	var fpsCounter:FPS;
+	var fpsCounter:KadeEngineFPS;
 
 	public function toggleFPS(fpsEnabled:Bool):Void {
 		fpsCounter.visible = fpsEnabled;
