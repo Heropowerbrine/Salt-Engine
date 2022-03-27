@@ -26,7 +26,7 @@ class Main extends Sprite
 
 	public static var watermarks = true; // Whether to put Kade Engine liteartly anywhere
 
-        public static var bitmap FPS:Bitmap;
+        public static var bitmapFPS:Bitmap;
 
         public static var instance:Main;
 
