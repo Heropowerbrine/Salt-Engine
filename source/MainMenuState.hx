@@ -162,12 +162,12 @@ class MainMenuState extends MusicBeatState
 				changeItem(1);
 			}
 
-			if (controls.BACK)
+			if (FlxG.keys.justPressed.BACK)
 			{
 				FlxG.switchState(new TitleState());
 			}
 
-			if (controls.ACCEPT)
+			if (FlxG.keys.justPressed.ACCEPT)
 			{
 				if (optionShit[curSelected] == 'donate')
 				{
