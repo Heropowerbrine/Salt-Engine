@@ -29,6 +29,8 @@ class MusicBeatState extends FlxUIState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
+
+       public static var initSave:Bool = false; 
 	
 	#if android
 	var _virtualpad:FlxVirtualPad;
@@ -95,6 +97,16 @@ class MusicBeatState extends FlxUIState
 
 	override function create()
 	{
+
+                if (initSave)
+		{
+			if (FlxG.save.data.laneTransparency < 0)
+				FlxG.save.data.laneTransparency = 0;
+
+                       if (FlxG.save.data.laneTransparency > 1)
+				FlxG.save.data.laneTransparency = 1;
+		}
+
 		(cast (Lib.current.getChildAt(0), Main)).setFPSCap(FlxG.save.data.fpsCap);
 
 		if (transIn != null)
