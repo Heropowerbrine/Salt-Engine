@@ -82,16 +82,14 @@ class Main extends Sprite
 
 		SUtil.doTheCheck();
 
-                #if !android
-		fpsCounter = new KadeEngineFPS(10, 3, 0xFFFFFF);
-		bitmapFPS = ImageOutline.renderImage(fpsCounter, 1, 0x000000, true);
-		bitmapFPS.smoothing = true;
-		#end
-
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
+
 		addChild(game);
 
                 #if !android
+                fpsCounter = new FPS(10, 3, 0xFFFFFF);
+		bitmapFPS = ImageOutline.renderImage(fpsCounter, 1, 0x000000, true);
+		bitmapFPS.smoothing = true;
 		addChild(fpsCounter);
 		toggleFPS(FlxG.save.data.fps);
                 #end
@@ -99,7 +97,7 @@ class Main extends Sprite
 
 	var game:FlxGame;
 
-	var fpsCounter:KadeEngineFPS;
+	var fpsCounter:FPS;
 
 	public function toggleFPS(fpsEnabled:Bool):Void {
 		fpsCounter.visible = fpsEnabled;
