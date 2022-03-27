@@ -1,6 +1,6 @@
 package;
 
-import openfl.display.Bitmap
+import openfl.display.Bitmap;
 import openfl.display.BlendMode;
 import openfl.text.TextFormat;
 import openfl.display.Application;
