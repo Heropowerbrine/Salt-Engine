@@ -26,6 +26,10 @@ class Main extends Sprite
 
 	public static var watermarks = true; // Whether to put Kade Engine liteartly anywhere
 
+        public static var bitmap FPS:Bitmap;
+
+        public static var instance:Main;
+
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
 	public static function main():Void
@@ -38,6 +42,8 @@ class Main extends Sprite
 
 	public function new()
 	{
+                instance = this;
+
 		super();
 
 	        SUtil.gameCrashCheck();
@@ -98,6 +104,24 @@ class Main extends Sprite
 	var game:FlxGame;
 
 	var fpsCounter:KadeEngineFPS;
+
+        public static function dumpCache()
+	{
+		///* SPECIAL THANKS TO HAYA
+		@:privateAccess
+		for (key in FlxG.bitmap._cache.keys())
+		{
+			var obj = FlxG.bitmap._cache.get(key);
+			if (obj != null)
+			{
+				Assets.cache.removeBitmapData(key);
+				FlxG.bitmap._cache.remove(key);
+				obj.destroy();
+			}
+		}
+		Assets.cache.clear("songs");
+		// */
+	}
 
 	public function toggleFPS(fpsEnabled:Bool):Void {
 		fpsCounter.visible = fpsEnabled;
