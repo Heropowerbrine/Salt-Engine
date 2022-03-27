@@ -99,11 +99,7 @@ class MusicBeatState extends FlxUIState
 
 		if (transIn != null)
 			trace('reg ' + transIn.region);
-
-		#if android
-	        addVirtualPad(FULL, A_B);
-                #end
-			
+		
 		super.create();
 	}
 
