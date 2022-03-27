@@ -87,7 +87,7 @@ class Main extends Sprite
 		addChild(game);
 
                 #if !android
-                fpsCounter = new FPS(10, 3, 0xFFFFFF);
+                fpsCounter = new KadeEngineFPS(10, 3, 0xFFFFFF);
 		bitmapFPS = ImageOutline.renderImage(fpsCounter, 1, 0x000000, true);
 		bitmapFPS.smoothing = true;
 		addChild(fpsCounter);
@@ -97,7 +97,7 @@ class Main extends Sprite
 
 	var game:FlxGame;
 
-	var fpsCounter:FPS;
+	var fpsCounter:KadeEngineFPS;
 
 	public function toggleFPS(fpsEnabled:Bool):Void {
 		fpsCounter.visible = fpsEnabled;
