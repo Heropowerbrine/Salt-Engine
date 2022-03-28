@@ -24,12 +24,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
 			default:
-				daBf = 'bf';
-				
-			#if android
-	                addVirtualPad(FULL, A_B);
-                        #end
-				
+				daBf = 'bf';		
 		}
 
 		super();
@@ -51,6 +46,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		FlxG.camera.target = null;
 
 		bf.playAnim('firstDeath');
+
+                addVirtualPad(NONE, A_B);
 	}
 
 	override function update(elapsed:Float)
