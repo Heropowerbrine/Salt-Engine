@@ -100,3 +100,4 @@ class Main extends Sprite
 		toggleFPS(FlxG.save.data.fps);
                 #end
 	}
+        }
