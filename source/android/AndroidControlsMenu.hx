@@ -154,3 +154,130 @@ class AndroidControlsMenu extends MusicBeatState
 					vpad.alpha = 0.75;
 					add(vpad);
 				case 'Pad-Left':
+					remove(vpad);
+					vpad = new FlxVirtualPad(FULL, NONE);
+					vpad.alpha = 0.75;
+					add(vpad);
+				case 'Pad-Custom':
+					remove(vpad);
+					vpad = new FlxVirtualPad(RIGHT_FULL, NONE);
+					vpad.alpha = 0.75;
+					add(vpad);
+					loadcustom();
+				case 'Duo':
+					remove(vpad);
+					vpad = new FlxVirtualPad(DUO, NONE);
+					vpad.alpha = 0.75;
+					add(vpad);
+				case 'Hitbox':
+					vpad.alpha = 0;
+				case 'Keyboard':
+					remove(vpad);
+					vpad.alpha = 0;
+		}
+
+		if (daChoice != "Hitbox")
+		{
+			hbox.visible = false;
+		}
+		else
+		{
+			hbox.visible = true;
+		}
+
+		if (daChoice != "Pad-Custom")
+		{
+			upPozition.visible = false;
+			downPozition.visible = false;
+			leftPozition.visible = false;
+			rightPozition.visible = false;
+		}
+		else
+		{
+			upPozition.visible = true;
+			downPozition.visible = true;
+			leftPozition.visible = true;
+			rightPozition.visible = true;
+		}
+	}
+
+	function trackbutton(touch:flixel.input.touch.FlxTouch){
+		var daChoice:String = controlitems[Math.floor(curSelected)];
+
+		if (daChoice == 'Pad-Custom'){
+			if (buttonistouched){
+				if (bindbutton.justReleased && touch.justReleased)
+				{
+					bindbutton = null;
+					buttonistouched = false;
+				}else 
+				{
+					movebutton(touch, bindbutton);
+					setbuttontexts();
+				}
+			}
+			else 
+			{
+				if (vpad.buttonUp.justPressed) {
+					movebutton(touch, vpad.buttonUp);
+				}
+				
+				if (vpad.buttonDown.justPressed) {
+					movebutton(touch, vpad.buttonDown);
+				}
+
+				if (vpad.buttonRight.justPressed) {
+					movebutton(touch, vpad.buttonRight);
+				}
+
+				if (vpad.buttonLeft.justPressed) {
+					movebutton(touch, vpad.buttonLeft);
+				}
+			}
+		}
+	}
+
+	function movebutton(touch:flixel.input.touch.FlxTouch, button:flixel.ui.FlxButton) {
+		button.x = touch.x - vpad.buttonUp.width / 2;
+		button.y = touch.y - vpad.buttonUp.height / 2;
+		bindbutton = button;
+		buttonistouched = true;
+	}
+
+	function setbuttontexts() {
+		upPozition.text = "Button Up X:" + vpad.buttonUp.x +" Y:" + vpad.buttonUp.y;
+		downPozition.text = "Button Down X:" + vpad.buttonDown.x +" Y:" + vpad.buttonDown.y;
+		leftPozition.text = "Button Left X:" + vpad.buttonLeft.x +" Y:" + vpad.buttonLeft.y;
+		rightPozition.text = "Button RIght x:" + vpad.buttonRight.x +" Y:" + vpad.buttonRight.y;
+	}
+
+	function save() {
+		config.setcontrolmode(curSelected);
+		var daChoice:String = controlitems[Math.floor(curSelected)];
+
+		if (daChoice == 'Pad-Custom'){
+			savecustom();
+		}
+	}
+
+	function savecustom() {
+		config.savecustom(vpad);
+	}
+
+	function loadcustom():Void{
+		vpad = config.loadcustom(vpad);	
+	}
+
+	function resizebuttons(vpad:FlxVirtualPad, ?int:Int = 200) {
+		for (button in vpad){
+			button.setGraphicSize(260);
+			button.updateHitbox();
+		}
+	}
+
+	function updatethefuckingpozitions() {
+		leftArrow.x = inputvari.x - 60;
+		rightArrow.x = inputvari.x + inputvari.width + 10;
+		inputvari.screenCenter(X);
+	}
+}
