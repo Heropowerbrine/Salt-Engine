@@ -40,11 +40,7 @@ class GameplayCustomizeState extends MusicBeatState
 
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
-
-	#if android
-	addVirtualPad(FULL, A_B);
-        #end
-	    
+    
         super.create();
 
 		camHUD = new FlxCamera();
