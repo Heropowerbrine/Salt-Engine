@@ -1055,11 +1055,7 @@ class PlayState extends MusicBeatState
 
 		if (!loadRep)
 			rep = new Replay("na");
-
-		#if android
-	        addVirtualPad(FULL, A_B);
-                #end		
-				
+		
 		super.create();
 	}
 
