@@ -86,6 +86,8 @@ class OptionsMenu extends MusicBeatState
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
 
+                addVirtualPad(FULL, A_B);
+           
 		super.create();
 	}
 
