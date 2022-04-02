@@ -1159,6 +1159,8 @@ class PlayState extends MusicBeatState
 	function coldOpen():Void
 	{
 		inCutscene = false;
+		
+		androidc.visible = true;
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
